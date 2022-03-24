@@ -1,12 +1,16 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "../pages/Home";
-import MovieDetail from "../pages/MovieDetail";
+import { Home, MovieDetail } from "../pages";
 
-const Router = () => {
+const Router = (props) => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="movies/:id" element={<MovieDetail />} />
+      <Route
+        path="/movies/:id"
+        element={
+          <MovieDetail setIsMovieDetailPage={props.setIsMovieDetailPage} />
+        }
+      />
     </Routes>
   );
 };

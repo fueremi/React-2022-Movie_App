@@ -35,7 +35,7 @@ const Home = () => {
   };
 
   return (
-    <div className="mt-16">
+    <div className="pt-36">
       <InfiniteScroll
         dataLength={listMovie.length}
         next={fetchMoreMovies}
