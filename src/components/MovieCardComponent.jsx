@@ -8,12 +8,12 @@ const MovieCardComponent = ({ movie }) => {
         {movie.Poster === "N/A" ? (
           <div
             style={{ backgroundImage: `url("${noPoster}")` }}
-            className="h-60 bg-cover bg-center"
+            className="h-80 lg:h-60 bg-cover bg-center"
           ></div>
         ) : (
           <div
             style={{ backgroundImage: `url("${movie.Poster}")` }}
-            className="h-56 bg-cover bg-center"
+            className="h-80 lg:h-60 bg-cover bg-center"
           ></div>
         )}
 
