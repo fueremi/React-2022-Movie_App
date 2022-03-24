@@ -1,11 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { bindActionCreators } from "redux";
+import Lightbox from "react-awesome-lightbox";
 import { actionCreators } from "../redux/actionCreates";
+
+import "react-awesome-lightbox/build/style.css";
 
 const MovieDetail = () => {
   const { id } = useParams();
+  const [showPoster, setShowPoster] = useState(false);
 
   let { movieDetail, isLoading } = useSelector((state) => state.movies);
   const dispatch = useDispatch();
@@ -18,8 +22,8 @@ const MovieDetail = () => {
   }, []);
 
   return (
-    <div className="pt-36 px-6">
-      <div className="rounded shadow-lg shadow-slate-400">
+    <div className="pt-36 lg:pt-24 px-6">
+      <div className="rounded shadow-lg shadow-slate-400 lg:w-1/3 mx-auto">
         {isLoading ? (
           <div className="fixed z-40 flex items-center justify-center w-screen h-screen top-0 left-0 bg-slate-300/10">
             <p className="animate-bounce">Loading...</p>
@@ -44,8 +48,16 @@ const MovieDetail = () => {
             <img
               src={movieDetail.Poster}
               alt={`Poster ${movieDetail.Title}`}
-              className="w-1/2 mx-auto rounded pt-8"
+              className="w-1/2 mx-auto rounded pt-8 hover:cursor-pointer"
+              onClick={() => setShowPoster(true)}
             />
+            {showPoster && (
+              <Lightbox
+                image={movieDetail.Poster}
+                title={`Poster ${movieDetail.Title}`}
+                onClose={() => setShowPoster(false)}
+              />
+            )}
             <div className="px-6 py-4">
               <div className="font-bold text-lg leading-5 mb-2 text-slate-700 text-center">
                 {movieDetail.Title}
