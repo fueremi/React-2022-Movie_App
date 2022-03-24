@@ -6,13 +6,13 @@ const MovieCardComponent = ({ movie }) => {
       {movie.Poster === "N/A" ? (
         <img
           src={noPoster}
-          className="w-2/3 h-80 sm:h-72 md:h-60 block mx-auto rounded-lg mt-4"
+          className="w-2/3 h-80 sm:h-72 md:h-60 xl:h-52 block mx-auto rounded-lg mt-4"
           alt="no-poster"
         />
       ) : (
         <img
           src={movie.Poster}
-          className="w-2/3 h-80 sm:h-72 md:h-60 block mx-auto rounded-lg mt-4"
+          className="w-2/3 h-80 sm:h-72 md:h-60 xl:h-52  block mx-auto rounded-lg mt-4"
           alt=""
         />
       )}
