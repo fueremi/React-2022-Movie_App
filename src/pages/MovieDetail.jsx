@@ -11,7 +11,6 @@ const MovieDetail = () => {
   const dispatch = useDispatch();
   const { fetchMovieDetail } = bindActionCreators(actionCreators, dispatch);
 
-  console.log(movieDetail);
   useEffect(() => {
     fetchMovieDetail(id);
 
