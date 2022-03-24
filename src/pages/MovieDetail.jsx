@@ -21,7 +21,7 @@ const MovieDetail = () => {
   return (
     <div className="pt-36 px-6">
       <div className="rounded shadow-lg shadow-slate-400">
-        <Link to="/" className="flex items-center pt-6 pl-6">
+        <Link to={-1} className="flex items-center pt-6 pl-6">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5 inline-block mr-2"
