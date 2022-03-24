@@ -19,7 +19,7 @@ const Home = () => {
 
   useEffect(() => {
     updatePage(1);
-    fetchMovies(searchValue, page, false);
+    fetchMovies(searchValue, 1, false);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchValue]);
