@@ -8,7 +8,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 const Home = () => {
   const [hasMore, setHasMore] = useState(true);
 
-  let { listMovie, searchValue, page, totalResults, isLoading } = useSelector(
+  let { listMovie, searchValue, page, totalResults } = useSelector(
     (state) => state.movies
   );
   const dispatch = useDispatch();
@@ -35,23 +35,20 @@ const Home = () => {
   };
 
   return (
-    <div className="pt-36">
+    <div className="pt-36 h-screen overflow-auto" id="scrollableDiv">
       <InfiniteScroll
         dataLength={listMovie.length}
         next={fetchMoreMovies}
         hasMore={hasMore}
-        loader={
-          <h4 className="text-4xl animate-bounce text-center mb-10">
-            Loading...
-          </h4>
-        }
+        scrollableTarget="scrollableDiv"
         endMessage={
           <h4 className="text-center text-4xl font-bold mb-10">
             ☺️ No More Data!
           </h4>
         }
+        loader={<p className="animate-bounce">Loading...</p>}
       >
-        {isLoading ? <></> : <MovieListComponent movies={listMovie} />}
+        <MovieListComponent movies={listMovie} />
       </InfiniteScroll>
     </div>
   );

@@ -3,7 +3,7 @@ import noPoster from "../assets/images/no-poster.png";
 
 const MovieCardComponent = ({ movie }) => {
   return (
-    <div className="flex flex-col justify-between rounded-lg shadow-lg shadow-slate-400 overflow-hidden mb-10 transition hover:cursor-pointer hover:scale-110">
+    <div className="lg:w-84 rounded-lg shadow-lg shadow-slate-400 overflow-hidden transition hover:cursor-pointer hover:scale-110">
       <Link to={`movies/${movie.imdbID}`}>
         {movie.Poster === "N/A" ? (
           <img
