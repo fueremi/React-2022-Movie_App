@@ -4,6 +4,7 @@ import {
   FETCH_TOTAL_RESULTS,
   UPDATE_PAGE,
   UPDATE_SEARCH_VALUE,
+  LOADING_FETCH,
 } from "../actionTypes";
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
   searchValue: "pirates",
   page: 1,
   totalResults: 0,
+  isLoading: false,
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -22,12 +24,15 @@ const reducer = (state = initialState, { type, payload }) => {
         return {
           ...state,
           listMovie: [...prevMovie, ...payload.results],
+          isLoading: false,
         };
       } else {
-        return { ...state, listMovie: payload.results };
+        return { ...state, listMovie: payload.results, isLoading: false };
       }
+    case LOADING_FETCH:
+      return { ...state, isLoading: true };
     case FETCH_MOVIE_DETAIL:
-      return { ...state, movieDetail: payload };
+      return { ...state, movieDetail: payload, isLoading: false };
     case UPDATE_SEARCH_VALUE:
       return { ...state, searchValue: payload };
     case UPDATE_PAGE:

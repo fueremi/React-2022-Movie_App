@@ -3,6 +3,7 @@ import {
   FETCH_MOVIES,
   FETCH_MOVIE_DETAIL,
   FETCH_TOTAL_RESULTS,
+  LOADING_FETCH,
   UPDATE_PAGE,
   UPDATE_SEARCH_VALUE,
 } from "../actionTypes";
@@ -11,6 +12,9 @@ export const fetchMovies = (searchValue, page, next) => {
   return async (dispatch) => {
     const CancelToken = axios.CancelToken;
     const source = CancelToken.source();
+    dispatch({
+      type: LOADING_FETCH,
+    });
     try {
       const response = await axios({
         method: "GET",
@@ -44,6 +48,9 @@ export const fetchMovieDetail = (id) => {
   return async (dispatch) => {
     const CancelToken = axios.CancelToken;
     const source = CancelToken.source();
+    dispatch({
+      type: LOADING_FETCH,
+    });
     try {
       const response = await axios({
         method: "GET",

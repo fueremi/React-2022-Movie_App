@@ -14,7 +14,7 @@ const NavbarComponent = (props) => {
 
   const handleOnClick = (e) => {
     e.target.value = "";
-    navigate(-1);
+    navigate("/");
   };
   return (
     <div className=" py-4 bg-slate-800 w-screen text-slate-200 fixed top-0 left-0 z-30">
