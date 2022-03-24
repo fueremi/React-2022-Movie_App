@@ -46,7 +46,7 @@ const Home = () => {
             ☺️ No More Data!
           </h4>
         }
-        loader={<p className="animate-bounce">Loading...</p>}
+        loader={<p className="animate-bounce text-center">Loading...</p>}
       >
         <MovieListComponent movies={listMovie} />
       </InfiniteScroll>

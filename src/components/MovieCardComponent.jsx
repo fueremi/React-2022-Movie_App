@@ -3,20 +3,18 @@ import noPoster from "../assets/images/no-poster.png";
 
 const MovieCardComponent = ({ movie }) => {
   return (
-    <div className="lg:w-84 rounded-lg shadow-lg shadow-slate-400 overflow-hidden transition hover:cursor-pointer hover:scale-110">
+    <div className="w-full lg:w-80 rounded-lg shadow-lg shadow-slate-400 overflow-hidden transition hover:cursor-pointer hover:scale-110">
       <Link to={`movies/${movie.imdbID}`}>
         {movie.Poster === "N/A" ? (
-          <img
-            src={noPoster}
-            className="w-full block mx-auto rounded-lg mt-4"
-            alt="no-poster"
-          />
+          <div
+            style={{ backgroundImage: `url("${noPoster}")` }}
+            className="h-96 bg-cover bg-center"
+          ></div>
         ) : (
-          <img
-            src={movie.Poster}
-            className="w-5/6 block mx-auto rounded-lg mt-4"
-            alt=""
-          />
+          <div
+            style={{ backgroundImage: `url("${movie.Poster}")` }}
+            className="h-96 bg-cover bg-center"
+          ></div>
         )}
 
         <div className="flex flex-1 flex-col justify-between px-6 py-4">
